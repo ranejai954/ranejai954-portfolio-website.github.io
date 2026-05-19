@@ -2,7 +2,8 @@
 
 ![Status](https://img.shields.io/badge/Status-Live-brightgreen)
 ![Cybersecurity](https://img.shields.io/badge/Focus-Cybersecurity-blue)
-![HTML/CSS/JS](https://shields.io)
+![HTML/CSS/JS](https://img.shields.io/badge/HTML-CSS-JS-orange?logo=html5&logoColor=white)
+
 
 ## 👋 About Me
 
