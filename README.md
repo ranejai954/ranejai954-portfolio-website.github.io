@@ -1,14 +1,15 @@
 # 🛡️ Jai Rane | Cybersecurity Portfolio
 
-![Status](https://img.shields.io/badge/status-live-brightgreen)
-![Cybersecurity](https://img.shields.io/badge/focus-Cybersecurity-blue)
-![HTML/CSS/JS](https://img.shields.io/badge/built%20with-HTML%2FCSS%2FJS-orange)
+![Status](https://img.shields.io/badge/Status-Live-brightgreen)
+![Cybersecurity](https://img.shields.io/badge/Focus-Cybersecurity-blue)
+![HTML/CSS/JS](https://shields.io)
 
 ## 👋 About Me
 
 B.Sc. Computer Science student specializing in **cybersecurity** with hands-on experience in SOC operations, VAPT, and threat detection. Passionate about defending against evolving cyber threats through automation and AI-driven security.
 
 ## 🔧 Technical Arsenal
+
 
 | Category | Skills |
 |----------|--------|
@@ -32,13 +33,19 @@ B.Sc. Computer Science student specializing in **cybersecurity** with hands-on e
   - Identified 12+ critical vulnerabilities (SQLi, XSS, CSRF)
   - Accelerated patch cycle by 30%
 
-## 🚀 Featured Projects
+## 🚀 Featured Projects & Staging Labs
 
-| Project | Tech Stack | Impact |
+
+| Project / Repository | Tech Stack | Impact / Target Link |
 |---------|------------|--------|
-| SOC Automation Lab | Python, Elastic Stack, SIEM | 40% faster alert triage |
-| Network Intrusion Detection System | Python, Scapy, ML | 94% detection accuracy |
-| Python Encryption Tool | AES-256, RSA | Secure data transmission |
+| **SOC Automation Lab** | Python, Elastic Stack, SIEM | 40% faster alert triage |
+| **Network Intrusion Detection System** | Python, Scapy, ML | 94% detection accuracy |
+| **Python Encryption Tool** | AES-256, RSA | Secure data transmission |
+| **VOIS Cybersecurity Log** | Threat-Analysis, VAPT | [View Repository](https://github.com) |
+| **VOIS Security GenAI** | GenAI, Security-Automation | [View Repository](https://github.com) |
+| **ApexPlanet VAPT Logs** | Kali Linux, Metasploit | [View Repository](https://github.com) |
+| **Vulnerability Scanning Hub** | Nmap, Network Recon | [View Repository](https://github.com) |
+| **Caesar Cipher Script** | Python, Cryptography | [View Repository](https://github.com) |
 
 ## 📜 Certifications
 
@@ -55,7 +62,7 @@ B.Sc. Computer Science (Expected April 2027)
 
 ## 🌐 Live Site
 
-> **[https://jairane.github.io](https://jairane.github.io)** *(replace with your actual URL)*
+> **[https://jairane.github.io](https://jairane.github.io)**
 
 ## 📫 Connect With Me
 
