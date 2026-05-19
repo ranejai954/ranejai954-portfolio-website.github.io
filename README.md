@@ -2,7 +2,7 @@
 
 ![Status](https://img.shields.io/badge/Status-Live-brightgreen)
 ![Cybersecurity](https://img.shields.io/badge/Focus-Cybersecurity-blue)
-![HTML/CSS/JS](https://shields.io)
+
 
 ## 👋 About Me
 
@@ -62,7 +62,7 @@ B.Sc. Computer Science (Expected April 2027)
 
 ## 🌐 Live Site
 
-> **[https://jairane.github.io](https://jairane.github.io)**
+> **[https://ranejai954.github.io/ranejai954-portfolio-website.github.io/](https://ranejai954.github.io/ranejai954-portfolio-website.github.io/)*
 
 ## 📫 Connect With Me
 
