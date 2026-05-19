@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jai Rane | Cybersecurity Portfolio</title>
-    <!-- Production Ready External Assets -->
+    <title>Jai Rane | Security Portfolio</title>
+    <!-- RESTORED: Working Fonts and Icons -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
@@ -70,14 +70,6 @@
         .sec-header::after { content: ""; flex: 1; height: 1px; background: var(--border); }
         .sec-header span { color: var(--accent); }
 
-        /* Grid Framework */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .card {
-            background: var(--card); border: 1px solid var(--border); padding: 2rem;
-            border-radius: 8px; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between;
-        }
-        .card:hover { transform: translateY(-10px); border-color: var(--accent); }
-
         /* Experience Timeline */
         .timeline { border-left: 1px solid var(--border); padding-left: 2rem; position: relative; }
         .exp-item { margin-bottom: 4rem; position: relative; }
@@ -94,6 +86,14 @@
         .exp-desc li { position: relative; padding-left: 1.5rem; color: var(--dim); margin-bottom: 0.5rem; font-size: 0.95rem; }
         .exp-desc li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
 
+        /* Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .card {
+            background: var(--card); border: 1px solid var(--border); padding: 2rem;
+            border-radius: 8px; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--accent); }
+
         /* Buttons & Tags */
         .btn {
             display: inline-flex; align-items: center; gap: 0.5rem;
@@ -103,7 +103,6 @@
             cursor: pointer; font-size: 0.9rem;
         }
         .btn:hover { background: var(--accent-glow); box-shadow: 0 0 15px var(--accent-glow); }
-        .project-btn { margin-top: 1.5rem; padding: 0.5rem 1rem; font-size: 0.8rem; width: fit-content; }
         .tag { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--accent); border: 1px solid var(--accent); padding: 2px 8px; border-radius: 4px; margin-right: 5px; margin-top: 5px; display: inline-block; }
         .tag-list { display: flex; flex-wrap: wrap; margin-top: 1rem; }
 
@@ -179,7 +178,6 @@
             <h2 class="sec-header"><span>02.</span> Internship History</h2>
             <div class="timeline">
                 
-                <!-- IBM AI -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -194,7 +192,6 @@
                     </ul>
                 </div>
 
-                <!-- 1M1B -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -209,7 +206,6 @@
                     </ul>
                 </div>
 
-                <!-- ApexPlanet Data -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -224,7 +220,6 @@
                     </ul>
                 </div>
 
-                <!-- VOIS Cyber -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -239,7 +234,6 @@
                     </ul>
                 </div>
 
-                <!-- Microsoft Azure -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -254,7 +248,6 @@
                     </ul>
                 </div>
 
-                <!-- VOIS Gen AI -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -269,7 +262,6 @@
                     </ul>
                 </div>
 
-                <!-- UptoSkills VAPT -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -284,7 +276,6 @@
                     </ul>
                 </div>
 
-                <!-- ApexPlanet Ethical Hacking -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -299,7 +290,6 @@
                     </ul>
                 </div>
 
-                <!-- IBM Cloud -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -313,63 +303,57 @@
                         <li>Strengthened expertise in cloud security, networking, and scalability.</li>
                     </ul>
                 </div>
-
             </div>
         </section>
 
         <!-- Projects Section -->
         <section id="projects">
-            <h2 class="sec-header"><span>03.</span> Engineering Repositories</h2>
+            <h2 class="sec-header"><span>03.</span> Code Repositories</h2>
             <div class="grid">
                 
-                <!-- VOIS Cyber March 2026 -->
                 <div class="card">
                     <div>
-                        <h3 style="color: #fff;">VOIS Cybersecurity Log</h3>
-                        <p style="color: var(--dim); font-size: 0.9rem; margin-top: 0.5rem;">Repository documenting core engineering deliverables from the March 2026 Cybersecurity technical track.</p>
+                        <h3 style="color: #fff; margin-bottom: 0.5rem;">VOIS Cybersecurity Log</h3>
+                        <p style="color: var(--dim); font-size: 0.9rem;">Engineering logs and workflows from the March 2026 Cybersecurity internship.</p>
                         <div class="tag-list"><span class="tag">Threat-Analysis</span><span class="tag">VAPT</span></div>
                     </div>
-                    <a href="https://github.com/ranejai954/vois-cybersecurity-internship-march2026" target="_blank" class="btn project-btn"><i class="fab fa-github"></i> VIEW_REPO</a>
+                    <a href="https://github.com" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
                 </div>
 
-                <!-- VOIS GenAI -->
                 <div class="card">
                     <div>
-                        <h3 style="color: #fff;">VOIS Security GenAI Integration</h3>
-                        <p style="color: var(--dim); font-size: 0.9rem; margin-top: 0.5rem;">Exploration and codebase dealing with AI integration patterns within operational defensive pipelines.</p>
+                        <h3 style="color: #fff; margin-bottom: 0.5rem;">VOIS Security GenAI</h3>
+                        <p style="color: var(--dim); font-size: 0.9rem;">Integrating artificial intelligence frameworks with traditional blue-team monitoring workflows.</p>
                         <div class="tag-list"><span class="tag">GenAI</span><span class="tag">Security-Automation</span></div>
                     </div>
-                    <a href="https://github.com/ranejai954/vois-cybersecurity-genai-internship" target="_blank" class="btn project-btn"><i class="fab fa-github"></i> VIEW_REPO</a>
+                    <a href="https://github.com" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
                 </div>
 
-                <!-- ApexPlanet VAPT -->
                 <div class="card">
                     <div>
-                        <h3 style="color: #fff;">ApexPlanet VAPT & Analytics Framework</h3>
-                        <p style="color: var(--dim); font-size: 0.9rem; margin-top: 0.5rem;">Task reports, scanning architecture configurations, and threat vectors mapped using offensive tooling.</p>
-                        <div class="tag-list"><span class="tag">Kali-Linux</span><span class="tag">Metasploit</span><span class="tag">Data-Patterns</span></div>
+                        <h3 style="color: #fff; margin-bottom: 0.5rem;">ApexPlanet VAPT Logs</h3>
+                        <p style="color: var(--dim); font-size: 0.9rem;">Vulnerability scanning, log analysis scripts, and ethical hacking assessment files.</p>
+                        <div class="tag-list"><span class="tag">Kali-Linux</span><span class="tag">Metasploit</span></div>
                     </div>
-                    <a href="https://github.com/ranejai954/apexplanet-cybersecurity-internship" target="_blank" class="btn project-btn"><i class="fab fa-github"></i> VIEW_REPO</a>
+                    <a href="https://github.com" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
                 </div>
 
-                <!-- Nmap Scanning -->
                 <div class="card">
                     <div>
-                        <h3 style="color: #fff;">Vulnerability Scanning Hub</h3>
-                        <p style="color: var(--dim); font-size: 0.9rem; margin-top: 0.5rem;">Infrastructure vulnerability evaluation mapping asset scripts and scanning frameworks via custom Nmap configurations.</p>
-                        <div class="tag-list"><span class="tag">Nmap</span><span class="tag">Network-Recon</span></div>
+                        <h3 style="color: #fff; margin-bottom: 0.5rem;">Vulnerability Scanning</h3>
+                        <p style="color: var(--dim); font-size: 0.9rem;">Network asset map exploration templates and service version identification scripts via Nmap.</p>
+                        <div class="tag-list"><span class="tag">Nmap</span><span class="tag">Recon</span></div>
                     </div>
-                    <a href="https://github.com" target="_blank" class="btn project-btn"><i class="fab fa-github"></i> VIEW_REPO</a>
+                    <a href="https://github.com" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
                 </div>
 
-                <!-- Caesar Cypher -->
                 <div class="card">
                     <div>
-                        <h3 style="color: #fff;">Caesar Cipher Cryptographic Engine</h3>
-                        <p style="color: var(--dim); font-size: 0.9rem; margin-top: 0.5rem;">Source script execution for algorithmic cryptographic encryption schemes and data block handling mechanisms.</p>
+                        <h3 style="color: #fff; margin-bottom: 0.5rem;">Caesar Cipher Script</h3>
+                        <p style="color: var(--dim); font-size: 0.9rem;">A foundational Python implementation executing symmetric block shifts for payload text encryption.</p>
                         <div class="tag-list"><span class="tag">Python</span><span class="tag">Cryptography</span></div>
                     </div>
-                    <a href="https://github.com" target="_blank" class="btn project-btn"><i class="fab fa-github"></i> VIEW_REPO</a>
+                    <a href="https://github.com" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
                 </div>
 
             </div>
@@ -377,7 +361,7 @@
 
         <!-- Education Section -->
         <section id="education">
-            <h2 class="sec-header"><span>04.</span> Education & Certifications</h2>
+            <h2 class="sec-header"><span>04.</span> Education</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
                 <div style="background: var(--card); padding: 1.5rem; border: 1px solid var(--border); border-radius: 8px;">
                     <h3 style="color: var(--accent);">B.Sc. Computer Science</h3>
@@ -396,14 +380,12 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact">
+        <section id="contact" style="text-align: center;">
             <h2 class="sec-header" style="justify-content: center;"><span>05.</span> Connect</h2>
-            <div style="text-align: center;">
-                <p style="color: var(--dim); margin-bottom: 2rem;">"Let's connect if you're building security teams that value proactive defense."</p>
-                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-                    <a href="mailto:ranejai954@gmail.com" class="btn"><i class="fas fa-envelope"></i> EMAIL_ME</a>
-                    <a href="https://linkedin.com" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LINKEDIN</a>
-                </div>
+            <p style="color: var(--dim); margin-bottom: 2rem;">"Let's connect if you're building security teams that value proactive defense."</p>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="mailto:ranejai954@gmail.com" class="btn"><i class="fas fa-envelope"></i> EMAIL_ME</a>
+                <a href="https://linkedin.com" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LINKEDIN</a>
             </div>
         </section>
 
@@ -481,11 +463,9 @@
                 }
             });
         };
-        // Trigger initial hero progress bars load
         setTimeout(() => {
             document.querySelectorAll('.progress-fill').forEach(bar => bar.style.width = bar.getAttribute('data-percent'));
         }, 500);
     </script>
 </body>
 </html>
-
