@@ -1,8 +1,8 @@
 # 🛡️ Jai Rane | Cybersecurity Portfolio
 
-![Status](https://badgen.net/badge/Status/Live/green)
-![Focus](https://badgen.net/badge/Focus/Cybersecurity/blue)
-![HTML/CSS/JS](https://badgen.net/badge/HTML/CSS/JS/f39c12)
+![Status](https://shieldcn.dev/badge/Status-Live-green)
+![Focus](https://shieldcn.dev/badge/Focus-Cybersecurity-blue)
+![Stack](https://shieldcn.dev/badge/HTML-CSS-JS-orange)
 
 
 ## 👋 About Me
