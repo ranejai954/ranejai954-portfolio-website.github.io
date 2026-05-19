@@ -5,6 +5,7 @@
 ![HTML/CSS/JS](https://img.shields.io/badge/HTML-CSS-JS-orange?logo=html5&logoColor=white)
 
 
+
 ## 👋 About Me
 
 B.Sc. Computer Science student specializing in **cybersecurity** with hands-on experience in SOC operations, VAPT, and threat detection. Passionate about defending against evolving cyber threats through automation and AI-driven security.
