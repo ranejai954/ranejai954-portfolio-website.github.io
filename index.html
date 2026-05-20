@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jai Rane | Security Portfolio</title>
     <!-- RESTORED: Working Fonts and Icons -->
-    <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
             --bg: #050505;
@@ -105,6 +105,35 @@
         .btn:hover { background: var(--accent-glow); box-shadow: 0 0 15px var(--accent-glow); }
         .tag { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--accent); border: 1px solid var(--accent); padding: 2px 8px; border-radius: 4px; margin-right: 5px; margin-top: 5px; display: inline-block; }
         .tag-list { display: flex; flex-wrap: wrap; margin-top: 1rem; }
+
+        /* Demo Preview */
+        .demo-preview {
+            background: #0a0e27;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            color: #00ff41;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .demo-preview::-webkit-scrollbar {
+            width: 4px;
+        }
+        .demo-preview::-webkit-scrollbar-track {
+            background: #0f1233;
+        }
+        .demo-preview::-webkit-scrollbar-thumb {
+            background: #00ff41;
+        }
+        .preview-line {
+            padding: 2px 0;
+            border-left: 2px solid #00ff41;
+            padding-left: 8px;
+            margin: 4px 0;
+            font-size: 10px;
+        }
 
         footer { padding: 50px 0; text-align: center; border-top: 1px solid var(--border); color: var(--dim); font-size: 0.8rem; font-family: 'JetBrains Mono'; }
 
@@ -296,6 +325,29 @@
             <h2 class="sec-header"><span>03.</span> Code Repositories</h2>
             <div class="grid">
                 
+                <!-- NEW: Packet Sniffer Project - Featured -->
+                <div class="card" style="border-color: var(--accent);">
+                    <div>
+                        <h3 style="color: var(--accent); margin-bottom: 0.5rem;">🔍 Network Packet Sniffer</h3>
+                        <p style="color: var(--dim); font-size: 0.9rem;">Real-time network traffic monitoring tool with a beautiful web dashboard. Capture TCP/UDP/ICMP packets, live statistics, and export data as JSON, CSV, or TXT.</p>
+                        <div class="tag-list">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">Scapy</span>
+                            <span class="tag">WebSocket</span>
+                            <span class="tag">Real-time</span>
+                        </div>
+                        <!-- Live Demo Preview -->
+                        <div class="demo-preview" id="demoPreview">
+                            <div class="preview-line">🚀 Initializing packet sniffer demo...</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
+                        <a href="https://github.com/ranejai954/packet-sniffer" target="_blank" class="btn" style="padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
+                        <a href="https://ranejai954.github.io/packet-sniffer" target="_blank" class="btn" style="padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fas fa-external-link-alt"></i> LIVE_DEMO</a>
+                    </div>
+                </div>
+
                 <div class="card">
                     <div>
                         <h3 style="color: #fff; margin-bottom: 0.5rem;">VOIS Cybersecurity Log</h3>
@@ -311,7 +363,7 @@
                         <p style="color: var(--dim); font-size: 0.9rem;">Integrating artificial intelligence frameworks with traditional blue-team monitoring workflows.</p>
                         <div class="tag-list"><span class="tag">GenAI</span><span class="tag">Security-Automation</span></div>
                     </div>
-                    <a href="https://github.com/ranejai954/vois-cybersecurity-genai-internship " target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
+                    <a href="https://github.com/ranejai954/vois-cybersecurity-genai-internship" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
                 </div>
 
                 <div class="card">
@@ -451,6 +503,44 @@
         setTimeout(() => {
             document.querySelectorAll('.progress-fill').forEach(bar => bar.style.width = bar.getAttribute('data-percent'));
         }, 500);
+
+        // Live Demo Preview Simulation
+        const previewLines = [
+            "[14:30:22] 192.168.1.100 → 8.8.8.8 | TCP | 128 bytes",
+            "[14:30:23] 10.0.0.1 → 192.168.1.1 | UDP | 256 bytes",
+            "[14:30:24] 172.16.0.1 → 1.1.1.1 | ICMP | 64 bytes",
+            "[14:30:25] 192.168.1.105 → 192.168.1.1 | TCP | 512 bytes",
+            "[14:30:26] 10.0.0.25 → 8.8.4.4 | UDP | 1420 bytes"
+        ];
+        
+        let lineIndex = 0;
+        const demoPreview = document.getElementById('demoPreview');
+        
+        function addPreviewLine() {
+            if (demoPreview && lineIndex < previewLines.length) {
+                const line = document.createElement('div');
+                line.className = 'preview-line';
+                line.innerHTML = `📡 ${previewLines[lineIndex]}`;
+                demoPreview.appendChild(line);
+                lineIndex++;
+                
+                // Auto-scroll to bottom
+                demoPreview.scrollTop = demoPreview.scrollHeight;
+            }
+        }
+        
+        // Add lines every 1.5 seconds
+        setInterval(addPreviewLine, 1500);
+        
+        // Initial demo message
+        setTimeout(() => {
+            if (demoPreview) {
+                const initLine = document.createElement('div');
+                initLine.className = 'preview-line';
+                initLine.innerHTML = '✅ Packet sniffer active | Export: JSON/CSV/TXT';
+                demoPreview.appendChild(initLine);
+            }
+        }, 1000);
     </script>
 </body>
 </html>
