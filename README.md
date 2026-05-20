@@ -63,7 +63,7 @@ B.Sc. Computer Science (Expected April 2027)
 
 ## 🌐 Live Site
 
-> **[https://ranejai954.github.io/ranejai954-portfolio-website.github.io/](https://ranejai954.github.io/ranejai954-portfolio-website.github.io/)*
+> [https://ranejai954.github.io/ranejai954-portfolio-website.github.io/](https://ranejai954.github.io/ranejai954-portfolio-website.github.io/)
 
 ## 📫 Connect With Me
 
