@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jai Rane | Security Portfolio</title>
-    <link rel="icon" type="image/png" href="logo2.png?v=2">
-    <link rel="icon" type="image/png" sizes="32x32" href="logo2.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="logo2.png">
-    <!-- RESTORED: Working Fonts and Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Jai Rane | Cybersecurity Portfolio</title>
+    <!-- Working Production-Ready Fonts and Icons -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         :root {
             --bg: #050505;
@@ -20,7 +17,6 @@
             --dim: #8b949e;
             --border: #30363d;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         
@@ -30,9 +26,8 @@
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
-
         canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.2; pointer-events: none; }
-
+        
         /* Navigation */
         nav {
             position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
@@ -48,7 +43,6 @@
         }
         .nav-links a:hover { color: var(--accent); }
         .nav-links a.active { color: var(--accent); border-bottom: 1px solid var(--accent); }
-
         .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
         /* Hero Section */
@@ -56,7 +50,7 @@
         .hero-pre { font-family: 'JetBrains Mono'; color: var(--accent); margin-bottom: 1rem; }
         .hero h1 { font-size: clamp(3rem, 10vw, 5rem); font-weight: 800; margin-bottom: 0.5rem; color: #fff; }
         .typewriter { font-family: 'JetBrains Mono'; font-size: 1.5rem; color: var(--dim); height: 1.5em; }
-
+        
         /* Metrics */
         .metrics-container {
             display: flex; flex-direction: column; gap: 1.2rem; margin-top: 3rem;
@@ -66,13 +60,13 @@
         .metric-label { font-family: 'JetBrains Mono'; font-size: 0.8rem; margin-bottom: 0.5rem; display: flex; justify-content: space-between; }
         .progress-bg { background: #161b22; height: 8px; border-radius: 4px; overflow: hidden; }
         .progress-fill { background: var(--accent); height: 100%; width: 0; transition: 2s cubic-bezier(0.1, 0.5, 0.5, 1); box-shadow: 0 0 10px var(--accent-glow); }
-
+        
         /* Section Styling */
         section { padding: 100px 0; min-height: 50vh; }
         .sec-header { font-family: 'JetBrains Mono'; font-size: 1.8rem; margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem; }
         .sec-header::after { content: ""; flex: 1; height: 1px; background: var(--border); }
         .sec-header span { color: var(--accent); }
-
+        
         /* Experience Timeline */
         .timeline { border-left: 1px solid var(--border); padding-left: 2rem; position: relative; }
         .exp-item { margin-bottom: 4rem; position: relative; }
@@ -88,15 +82,15 @@
         .exp-desc { list-style: none; margin-top: 1rem; }
         .exp-desc li { position: relative; padding-left: 1.5rem; color: var(--dim); margin-bottom: 0.5rem; font-size: 0.95rem; }
         .exp-desc li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
-
-        /* Grid */
+        
+        /* Grid Layout */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .card {
             background: var(--card); border: 1px solid var(--border); padding: 2rem;
             border-radius: 8px; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between;
         }
         .card:hover { transform: translateY(-10px); border-color: var(--accent); }
-
+        
         /* Buttons & Tags */
         .btn {
             display: inline-flex; align-items: center; gap: 0.5rem;
@@ -108,38 +102,19 @@
         .btn:hover { background: var(--accent-glow); box-shadow: 0 0 15px var(--accent-glow); }
         .tag { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--accent); border: 1px solid var(--accent); padding: 2px 8px; border-radius: 4px; margin-right: 5px; margin-top: 5px; display: inline-block; }
         .tag-list { display: flex; flex-wrap: wrap; margin-top: 1rem; }
-
-        /* Demo Preview */
+        
+        /* Live Demo Output Console Visual */
         .demo-preview {
-            background: #0a0e27;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-top: 1rem;
-            font-family: 'Courier New', monospace;
-            font-size: 11px;
-            color: #00ff41;
-            max-height: 150px;
-            overflow-y: auto;
+            background: #0a0e27; border-radius: 8px; padding: 1rem; margin-top: 1rem;
+            font-family: 'Courier New', monospace; font-size: 11px; color: #00ff41;
+            max-height: 150px; overflow-y: auto;
         }
-        .demo-preview::-webkit-scrollbar {
-            width: 4px;
-        }
-        .demo-preview::-webkit-scrollbar-track {
-            background: #0f1233;
-        }
-        .demo-preview::-webkit-scrollbar-thumb {
-            background: #00ff41;
-        }
-        .preview-line {
-            padding: 2px 0;
-            border-left: 2px solid #00ff41;
-            padding-left: 8px;
-            margin: 4px 0;
-            font-size: 10px;
-        }
-
+        .demo-preview::-webkit-scrollbar { width: 4px; }
+        .demo-preview::-webkit-scrollbar-track { background: #0f1233; }
+        .demo-preview::-webkit-scrollbar-thumb { background: #00ff41; }
+        .preview-line { padding: 2px 0; border-left: 2px solid #00ff41; padding-left: 8px; margin: 4px 0; font-size: 10px; }
+        
         footer { padding: 50px 0; text-align: center; border-top: 1px solid var(--border); color: var(--dim); font-size: 0.8rem; font-family: 'JetBrains Mono'; }
-
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .exp-head { flex-direction: column; gap: 0.5rem; }
@@ -210,6 +185,22 @@
             <h2 class="sec-header"><span>02.</span> Internship History</h2>
             <div class="timeline">
                 
+                <!-- NEW: Lenovo LEAP / BharatCares -->
+                <div class="exp-item">
+                    <div class="exp-head">
+                        <div>
+                            <div class="exp-company">Lenovo LEAP / BharatCares (AICTE)</div>
+                            <div class="exp-title">Generative AI & Agentic Systems Engineering Intern</div>
+                        </div>
+                        <span class="exp-date">June 2026 – Present</span>
+                    </div>
+                    <ul class="exp-desc">
+                        <li>Participating in a structured technical scholar track centered around GenAI infrastructure, agentic pipelines, and custom technical modules.</li>
+                        <li>Gaining exposure in designing robust, automated system logic alongside mentor-guided software project evaluations.</li>
+                    </ul>
+                </div>
+
+                <!-- IBM AI -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -223,6 +214,8 @@
                         <li>Exploring Generative AI applications including LLMs and diffusion models for automation.</li>
                     </ul>
                 </div>
+
+                <!-- ApexPlanet Data -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -237,6 +230,7 @@
                     </ul>
                 </div>
 
+                <!-- VOIS Cyber -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -251,6 +245,7 @@
                     </ul>
                 </div>
 
+                <!-- Microsoft Azure -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -265,6 +260,7 @@
                     </ul>
                 </div>
 
+                <!-- VOIS Gen AI -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -279,6 +275,7 @@
                     </ul>
                 </div>
 
+                <!-- UptoSkills VAPT -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -293,6 +290,7 @@
                     </ul>
                 </div>
 
+                <!-- ApexPlanet Ethical Hacking -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -307,6 +305,7 @@
                     </ul>
                 </div>
 
+                <!-- IBM Cloud -->
                 <div class="exp-item">
                     <div class="exp-head">
                         <div>
@@ -328,72 +327,72 @@
             <h2 class="sec-header"><span>03.</span> Code Repositories</h2>
             <div class="grid">
                 
-                <!-- NEW: Packet Sniffer Project - Featured -->
+                <!-- Packet Sniffer Project Card -->
                 <div class="card" style="border-color: var(--accent);">
                     <div>
-                        <h3 style="color: var(--accent); margin-bottom: 0.5rem;">🔍 Network Packet Sniffer</h3>
-                        <p style="color: var(--dim); font-size: 0.9rem;">Real-time network traffic monitoring tool with a beautiful web dashboard. Capture TCP/UDP/ICMP packets, live statistics, and export data as JSON, CSV, or TXT.</p>
+                        <h3 style="color: var(--accent); margin-bottom: 0.5rem;">Network Packet Sniffer</h3>
+                        <p style="color: var(--dim); font-size: 0.9rem;">Real-time network traffic monitoring tool with a web dashboard. Capture TCP/UDP/ICMP packets, live statistics, and export data as JSON, CSV, or TXT.</p>
                         <div class="tag-list">
-                            <span class="tag">Python</span>
-                            <span class="tag">Flask</span>
-                            <span class="tag">Scapy</span>
-                            <span class="tag">WebSocket</span>
-                            <span class="tag">Real-time</span>
+                            <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Scapy</span><span class="tag">WebSocket</span>
                         </div>
-                        <!-- Live Demo Preview -->
                         <div class="demo-preview" id="demoPreview">
-                            <div class="preview-line">🚀 Initializing packet sniffer demo...</div>
+                            <div class="preview-line">Initializing packet sniffer demo...</div>
                         </div>
                     </div>
                     <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
-                        <a href="https://github.com/ranejai954/packet-sniffer" target="_blank" class="btn" style="padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
-                        <a href="https://ranejai954.github.io/packet-sniffer" target="_blank" class="btn" style="padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fas fa-external-link-alt"></i> LIVE_DEMO</a>
+                        <a href="https://github.com" target="_blank" class="btn" style="padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
+                        <a href="https://github.io" target="_blank" class="btn" style="padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fas fa-external-link-alt"></i> LIVE_DEMO</a>
                     </div>
                 </div>
-
+                
+                <!-- VOIS Cyber March 2026 -->
                 <div class="card">
                     <div>
                         <h3 style="color: #fff; margin-bottom: 0.5rem;">VOIS Cybersecurity Log</h3>
                         <p style="color: var(--dim); font-size: 0.9rem;">Engineering logs and workflows from the March 2026 Cybersecurity internship.</p>
                         <div class="tag-list"><span class="tag">Threat-Analysis</span><span class="tag">VAPT</span></div>
                     </div>
-                    <a href="https://github.com/ranejai954/vois-cybersecurity-internship-march2026" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
+                    <a href="https://github.com" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
                 </div>
 
+                <!-- VOIS GenAI -->
                 <div class="card">
                     <div>
-                        <h3 style="color: #fff; margin-bottom: 0.5rem;">VOIS Cybersecurity-GenAI</h3>
+                        <h3 style="color: #fff; margin-bottom: 0.5rem;">VOIS Cybersecurity GenAI</h3>
                         <p style="color: var(--dim); font-size: 0.9rem;">Integrating artificial intelligence frameworks with traditional blue-team monitoring workflows.</p>
                         <div class="tag-list"><span class="tag">GenAI</span><span class="tag">Security-Automation</span></div>
                     </div>
-                    <a href="https://github.com/ranejai954/vois-cybersecurity-genai-internship" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
+                    <a href="https://github.com" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
                 </div>
 
+                <!-- ApexPlanet VAPT -->
                 <div class="card">
                     <div>
                         <h3 style="color: #fff; margin-bottom: 0.5rem;">ApexPlanet VAPT Project Logs</h3>
                         <p style="color: var(--dim); font-size: 0.9rem;">Vulnerability scanning, log analysis scripts, and ethical hacking assessment files.</p>
                         <div class="tag-list"><span class="tag">Kali-Linux</span><span class="tag">Metasploit</span></div>
                     </div>
-                    <a href="https://github.com/ranejai954/apexplanet-cybersecurity-internship" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
+                    <a href="https://github.com" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
                 </div>
 
+                <!-- Nmap Scanning -->
                 <div class="card">
                     <div>
                         <h3 style="color: #fff; margin-bottom: 0.5rem;">Vulnerability Scanning</h3>
                         <p style="color: var(--dim); font-size: 0.9rem;">Network asset map exploration templates and service version identification scripts via Nmap.</p>
                         <div class="tag-list"><span class="tag">Nmap</span><span class="tag">Recon</span></div>
                     </div>
-                    <a href="https://github.com/ranejai954/vulenarability_scanning_nmap" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
+                    <a href="https://github.com" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
                 </div>
 
+                <!-- Caesar Cipher -->
                 <div class="card">
                     <div>
                         <h3 style="color: #fff; margin-bottom: 0.5rem;">Caesar Cipher Script</h3>
                         <p style="color: var(--dim); font-size: 0.9rem;">A foundational Python implementation executing symmetric block shifts for payload text encryption.</p>
                         <div class="tag-list"><span class="tag">Python</span><span class="tag">Cryptography</span></div>
                     </div>
-                    <a href="https://github.com/ranejai954/ceaser-cypher-source-script" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
+                    <a href="https://github.com" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
                 </div>
 
             </div>
@@ -425,7 +424,7 @@
             <p style="color: var(--dim); margin-bottom: 2rem;">"Let's connect if you're building security teams that value proactive defense."</p>
             <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
                 <a href="mailto:ranejai954@gmail.com" class="btn"><i class="fas fa-envelope"></i> EMAIL_ME</a>
-                <a href="https://www.linkedin.com/in/jai-rane-62ba58352" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LINKEDIN</a>
+                <a href="https://linkedin.com" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LINKEDIN</a>
             </div>
         </section>
 
@@ -435,7 +434,7 @@
     </div>
 
     <script>
-        // Matrix Rain
+        // Matrix Rain Background
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
@@ -459,7 +458,7 @@
         }
         setInterval(draw, 50);
 
-        // Typewriter
+        // Typewriter Effect
         const strings = ["Aspiring SOC Analyst.", "Threat Detection Specialist.", "Ethical Hacker."];
         let strIdx = 0, charIdx = 0;
         const typeEl = document.getElementById('typewriter');
@@ -485,7 +484,7 @@
         }
         type();
 
-        // Scroll Logic
+        // Scroll Tracking Logic
         window.onscroll = () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-links a');
@@ -507,7 +506,7 @@
             document.querySelectorAll('.progress-fill').forEach(bar => bar.style.width = bar.getAttribute('data-percent'));
         }, 500);
 
-        // Live Demo Preview Simulation
+        // Live Demo Simulation Log Output
         const previewLines = [
             "[14:30:22] 192.168.1.100 → 8.8.8.8 | TCP | 128 bytes",
             "[14:30:23] 10.0.0.1 → 192.168.1.1 | UDP | 256 bytes",
@@ -515,32 +514,24 @@
             "[14:30:25] 192.168.1.105 → 192.168.1.1 | TCP | 512 bytes",
             "[14:30:26] 10.0.0.25 → 8.8.4.4 | UDP | 1420 bytes"
         ];
-        
         let lineIndex = 0;
         const demoPreview = document.getElementById('demoPreview');
-        
         function addPreviewLine() {
             if (demoPreview && lineIndex < previewLines.length) {
                 const line = document.createElement('div');
                 line.className = 'preview-line';
-                line.innerHTML = `📡 ${previewLines[lineIndex]}`;
+                line.innerHTML = ` ${previewLines[lineIndex]}`;
                 demoPreview.appendChild(line);
                 lineIndex++;
-                
-                // Auto-scroll to bottom
                 demoPreview.scrollTop = demoPreview.scrollHeight;
             }
         }
-        
-        // Add lines every 1.5 seconds
         setInterval(addPreviewLine, 1500);
-        
-        // Initial demo message
         setTimeout(() => {
             if (demoPreview) {
                 const initLine = document.createElement('div');
                 initLine.className = 'preview-line';
-                initLine.innerHTML = '✅ Packet sniffer active | Export: JSON/CSV/TXT';
+                initLine.innerHTML = ' Packet sniffer active | Export: JSON/CSV/TXT';
                 demoPreview.appendChild(initLine);
             }
         }, 1000);
