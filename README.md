@@ -69,6 +69,8 @@ B.Sc. Computer Science (Expected April 2027)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jai-rane-62ba58352)
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ranejai954@gmail.com)
+[![GitHub](https://shields.io)](https://github.com/ranejai954)
+
 
 ---
 
