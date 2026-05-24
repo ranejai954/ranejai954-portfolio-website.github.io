@@ -1,8 +1,9 @@
 # 🛡️ Jai Rane | Cybersecurity Portfolio
 
-![Status](https://img.shields.io/badge/Status-Live-green)
-![Focus](https://img.shields.io/badge/Focus-Cybersecurity-blue)
-![Stack](https://img.shields.io/badge/HTML-CSS-JS-orange)
+![Status](https://shieldcn.dev/badge/Status-Live-green)
+![Focus](https://shieldcn.dev/badge/Focus-Cybersecurity-blue)
+![Stack](https://shieldcn.dev/badge/HTML-CSS-JS-orange)
+
 
 
 ## 👋 About Me
@@ -39,7 +40,7 @@ B.Sc. Computer Science student specializing in **cybersecurity** with hands-on e
 
 | Project / Repository | Tech Stack | Impact / Target Link |
 |---------|------------|--------|
-| **🔍 Network Packet Sniffer** | Python, Flask, Scapy, WebSocket | Real-time traffic monitoring with live dashboard. Export JSON/CSV/TXT. [→ View Repo](https://github.com/ranejai954/packet-sniffer) [→ Live Demo](https://ranejai954.github.io/packet-sniffer) |
+| **🔍 Network Packet Sniffer** | Python, Flask, Scapy, WebSocket | Real-time traffic monitoring with live dashboard. Export JSON/CSV/TXT. [View Repository](https://github.com/ranejai954/packet-sniffer) [Live Demo](https://ranejai954.github.io/packet-sniffer) |
 | **SOC Automation Lab** | Python, Elastic Stack, SIEM | 40% faster alert triage |
 | **Network Intrusion Detection System** | Python, Scapy, ML | 94% detection accuracy |
 | **Python Encryption Tool** | AES-256, RSA | Secure data transmission |
