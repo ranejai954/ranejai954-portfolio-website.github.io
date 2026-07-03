@@ -3,599 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jai Rane | Security Portfolio</title>
-    <link rel="icon" type="image/png" href="logo2.png?v=2">
-    <link rel="icon" type="image/png" sizes="32x32" href="logo2.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="logo2.png">
-    <!-- RESTORED: Working Fonts and Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>JAI RANE | THREAT ANALYST & CYBER SECURITY ARCHITECT</title>
+    <link rel="icon" type="image/png" href="logo2.png">
+    
+    <!-- Premium Google Font Typography -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
+
     <style>
         :root {
-            --bg: #050505;
-            --card: #0d1117;
-            --accent: #00ff41;
-            --accent-glow: rgba(0, 255, 65, 0.3);
-            --text: #e6edf3;
-            --dim: #8b949e;
-            --border: #30363d;
+            --bg:       #010509;
+            --bg2:      #030a12;
+            --card:     #060d18;
+            --card2:    #090f1c;
+            --blue:     #1a8fff;
+            --blue2:    #0055cc;
+            --blue-dim: rgba(26,143,255,0.08);
+            --violet:   #9b4dff;
+            --violet2:  #6b1fe8;
+            --vdim:     rgba(155,77,255,0.12);
+            --yellow:   #f5c518;
+            --ydim:     rgba(245,197,24,0.08);
+            --red:      #e8293a;
+            --rdim:     rgba(232,41,58,0.12);
+            --cyan:     #00c8e8;
+            --border:   rgba(26,100,200,0.15);
+            --borderv:  rgba(155,77,255,0.22);
+            --text:     #c8dff5;
+            --dim:      #4a6a8a;
+            --mono:     'JetBrains Mono', monospace;
+            --head:     'Barlow Condensed', sans-serif;
+            --body:     'Barlow', sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        
         body {
             background: var(--bg);
             color: var(--text);
-            font-family: 'Inter', sans-serif;
+            font-family: var(--body);
             overflow-x: hidden;
+            line-height: 1.5;
         }
 
-        canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.2; pointer-events: none; }
+        /* Custom Ultra-Thin Scrollbar */
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--violet2); border-radius: 2px; }
 
-        /* Navigation */
+        /* Background Performance Overlay Engine */
+        #bgc { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.35; }
+        body::after {
+            content: ''; position: fixed; inset: 0; z-index: 1; pointer-events: none;
+            background: 
+                radial-gradient(ellipse at 50% 0%, rgba(26,143,255,0.04) 0%, transparent 75%),
+                radial-gradient(ellipse at 100% 100%, rgba(155,77,255,0.05) 0%, transparent 60%),
+                repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.05) 3px, rgba(0,0,0,0.05) 4px);
+        }
+
+        .wrap { max-width: 1140px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2; }
+
+        /* Video Ambient Layer Setup */
+        .video-container { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; pointer-events: none; }
+        .bg-video { width: 100%; height: 100%; object-fit: cover; opacity: 0.08; filter: grayscale(30%) contrast(120%); }
+
+        /* Navigation HUD Bar */
         nav {
-            position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
-            background: rgba(5, 5, 5, 0.9); backdrop-filter: blur(10px);
-            z-index: 1000; border-bottom: 1px solid var(--border);
-            display: flex; justify-content: space-between; align-items: center;
+            position: fixed; top: 0; width: 100%; height: 54px; z-index: 1000;
+            background: rgba(1,5,9,0.85); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
         }
-        .nav-logo { font-family: 'JetBrains Mono'; font-weight: 700; color: var(--accent); font-size: 1.2rem; }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { 
-            color: var(--dim); text-decoration: none; font-family: 'JetBrains Mono'; 
-            font-size: 0.85rem; transition: 0.3s;
+        .nav-id { font-family: var(--mono); font-weight: 800; font-size: 0.9rem; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.4rem; }
+        .nav-id .bracket { color: var(--violet); }
+        .nav-id .name { color: #fff; }
+        .nav-id .role { color: var(--blue); font-weight: 400; font-size: 0.7rem; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links a {
+            display: block; padding: 0 1rem; height: 54px; line-height: 54px;
+            font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em;
+            color: var(--dim); text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.2s;
         }
-        .nav-links a:hover { color: var(--accent); }
-        .nav-links a.active { color: var(--accent); border-bottom: 1px solid var(--accent); }
+        .nav-links a:hover, .nav-links a.active { color: var(--blue); border-bottom-color: var(--blue); }
+        .nav-ping { display: flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.65rem; color: var(--dim); }
+        .ping-dot { width: 6px; height: 6px; border-radius: 50%; background: #00e87a; box-shadow: 0 0 8px #00e87a; animation: pingAnim 2s ease-in-out infinite; }
+        @keyframes pingAnim { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-
-        /* Hero Section */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; }
-        .hero-pre { font-family: 'JetBrains Mono'; color: var(--accent); margin-bottom: 1rem; }
-        .hero h1 { font-size: clamp(3rem, 10vw, 5rem); font-weight: 800; margin-bottom: 0.5rem; color: #fff; }
-        .typewriter { font-family: 'JetBrains Mono'; font-size: 1.5rem; color: var(--dim); height: 1.5em; }
-
-        /* Metrics */
-        .metrics-container {
-            display: flex; flex-direction: column; gap: 1.2rem; margin-top: 3rem;
-            background: var(--card); padding: 2rem; border: 1px solid var(--border); border-radius: 8px;
-            max-width: 600px;
+        /* Hero Core Terminal Layout */
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 54px; position: relative; }
+        .hero-case {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.2em;
+            color: var(--dim); background: var(--card2); border: 1px solid var(--border);
+            padding: 0.3rem 0.8rem; border-radius: 1px; margin-bottom: 1.8rem; width: max-content;
         }
-        .metric-label { font-family: 'JetBrains Mono'; font-size: 0.8rem; margin-bottom: 0.5rem; display: flex; justify-content: space-between; }
-        .progress-bg { background: #161b22; height: 8px; border-radius: 4px; overflow: hidden; }
-        .progress-fill { background: var(--accent); height: 100%; width: 0; transition: 2s cubic-bezier(0.1, 0.5, 0.5, 1); box-shadow: 0 0 10px var(--accent-glow); }
-
-        /* Section Styling */
-        section { padding: 100px 0; min-height: 50vh; }
-        .sec-header { font-family: 'JetBrains Mono'; font-size: 1.8rem; margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem; }
-        .sec-header::after { content: ""; flex: 1; height: 1px; background: var(--border); }
-        .sec-header span { color: var(--accent); }
-
-        /* Experience Timeline */
-        .timeline { border-left: 1px solid var(--border); padding-left: 2rem; position: relative; }
-        .exp-item { margin-bottom: 4rem; position: relative; }
-        .exp-item::before {
-            content: ""; position: absolute; left: calc(-2rem - 5px); top: 5px;
-            width: 9px; height: 9px; background: var(--accent); border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent);
+        .hero-case .case-id { color: var(--red); font-weight: bold; }
+        .hero-name {
+            font-family: var(--head); font-weight: 800; font-size: clamp(3.5rem, 9vw, 6.5rem); line-height: 0.9;
+            letter-spacing: -0.01em; color: #fff; margin-bottom: 0.5rem; text-shadow: 0 0 80px rgba(26,143,255,0.15);
         }
-        .exp-head { display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 0.8rem; }
-        .exp-title { color: var(--accent); font-weight: 700; font-size: 1.2rem; }
-        .exp-company { font-family: 'JetBrains Mono'; font-size: 1rem; color: #fff; margin-bottom: 0.2rem; }
-        .exp-date { font-family: 'JetBrains Mono'; color: var(--dim); font-size: 0.85rem; }
-        .exp-desc { list-style: none; margin-top: 1rem; }
-        .exp-desc li { position: relative; padding-left: 1.5rem; color: var(--dim); margin-bottom: 0.5rem; font-size: 0.95rem; }
-        .exp-desc li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
-
-        /* Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .card {
-            background: var(--card); border: 1px solid var(--border); padding: 2rem;
-            border-radius: 8px; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between;
-        }
-        .card:hover { transform: translateY(-10px); border-color: var(--accent); }
-
-        /* Buttons & Tags */
-        .btn {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: transparent; border: 1px solid var(--accent);
-            color: var(--accent); padding: 0.8rem 1.5rem; border-radius: 4px;
-            font-family: 'JetBrains Mono'; text-decoration: none; transition: 0.3s;
-            cursor: pointer; font-size: 0.9rem;
-        }
-        .btn:hover { background: var(--accent-glow); box-shadow: 0 0 15px var(--accent-glow); }
-        .tag { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--accent); border: 1px solid var(--accent); padding: 2px 8px; border-radius: 4px; margin-right: 5px; margin-top: 5px; display: inline-block; }
-        .tag-list { display: flex; flex-wrap: wrap; margin-top: 1rem; }
-
-        /* Demo Preview */
-        .demo-preview {
-            background: #0a0e27;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-top: 1rem;
-            font-family: 'Courier New', monospace;
-            font-size: 11px;
-            color: #00ff41;
-            max-height: 150px;
-            overflow-y: auto;
-        }
-        .demo-preview::-webkit-scrollbar {
-            width: 4px;
-        }
-        .demo-preview::-webkit-scrollbar-track {
-            background: #0f1233;
-        }
-        .demo-preview::-webkit-scrollbar-thumb {
-            background: #00ff41;
-        }
-        .preview-line {
-            padding: 2px 0;
-            border-left: 2px solid #00ff41;
-            padding-left: 8px;
-            margin: 4px 0;
-            font-size: 10px;
-        }
-
-        footer { padding: 50px 0; text-align: center; border-top: 1px solid var(--border); color: var(--dim); font-size: 0.8rem; font-family: 'JetBrains Mono'; }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .exp-head { flex-direction: column; gap: 0.5rem; }
-        }
-    </style>
-</head>
-<body>
-
-    <canvas id="matrix"></canvas>
-
-    <nav>
-        <div class="nav-logo">JAI_RANE</div>
-        <ul class="nav-links">
-            <li><a href="#about">01. About</a></li>
-            <li><a href="#experience">02. Internships</a></li>
-            <li><a href="#projects">03. Projects</a></li>
-            <li><a href="#education">04. Education</a></li>
-            <li><a href="#contact">05. Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <p class="hero-pre">SYSTEM_INITIALIZED</p>
-            <h1>Jai Rane.</h1>
-            <div class="typewriter" id="typewriter"></div>
-            <p style="margin-top: 2rem; max-width: 600px; color: var(--dim); line-height: 1.8;">
-                "I turn vulnerabilities into action plans." B.Sc. Computer Science student specializing in Blue Team operations, threat detection automation, and proactive defense.
-            </p>
-            
-            <div class="metrics-container">
-                <div class="metric-row">
-                    <div class="metric-label"><span>VULNERABILITY_PRIORITIZATION</span><span>CRITICAL</span></div>
-                    <div class="progress-bg"><div class="progress-fill" data-percent="92%"></div></div>
-                </div>
-                <div class="metric-row">
-                    <div class="metric-label"><span>THREAT_DETECTION_AUTOMATION</span><span>ACTIVE</span></div>
-                    <div class="progress-bg"><div class="progress-fill" data-percent="85%"></div></div>
-                </div>
-            </div>
-            <div style="margin-top: 2rem;">
-                <a href="#experience" class="btn">ACCESS_WORK_LOGS</a>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about">
-            <h2 class="sec-header"><span>01.</span> Core Intelligence</h2>
-            <div class="grid">
-                <div class="card">
-                    <div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;"><i class="fas fa-terminal"></i> Security Ops</h3>
-                        <p style="color: var(--dim); font-size: 0.95rem;">Hands-on experience in SOC workflows, Nmap, Burp Suite, Kali Linux, and Metasploit. Expert at identifying risks and delivering engineering-ready remediation paths.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;"><i class="fas fa-brain"></i> AI & Cloud</h3>
-                        <p style="color: var(--dim); font-size: 0.95rem;">Leveraging Generative AI (LLMs, RAG) to enhance threat detection. Proficient in Azure DevOps, CI/CD pipelines, and cloud security optimization.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Internships Section -->
-        <section id="experience">
-            <h2 class="sec-header"><span>02.</span> Internship History</h2>
-            <div class="timeline"> 
-                <div class="exp-item">
-                    <div class="exp-head">
-                        <div>
-                            <div class="exp-company">Lenovo LEAP via CSRBOX & BharatCares</div>
-                            <div class="exp-title">Generative AI & Agentic Systems Enginnering Intern</div>
-                        </div>
-                        <span class="exp-date">June 2026 – Present</span>
-                    </div>
-                    <ul class="exp-desc">
-                        <li>Participating in a structured technical scholar track centered around GenAI infrastructure, agentic pipelines, and custom technical modules.</li>
-                        <li>Gaining exposure in designing robust, automated system logic alongside mentor-guided software project evaluations.</li>
-                    </ul>
-                </div>
-                
-                <div class="exp-item">
-                    <div class="exp-head">
-                        <div>
-                            <div class="exp-company">IBM</div>
-                            <div class="exp-title">Artificial Intelligence Intern</div>
-                        </div>
-                        <span class="exp-date">May 2026 – Present</span>
-                    </div>
-                    <ul class="exp-desc">
-                        <li>Supporting AI development operations by learning machine learning fundamentals and model training.</li>
-                        <li>Exploring Generative AI applications including LLMs and diffusion models for automation.</li>
-                    </ul>
-                </div>
-                <div class="exp-item">
-                    <div class="exp-head">
-                        <div>
-                            <div class="exp-company">ApexPlanet Software Pvt Ltd</div>
-                            <div class="exp-title">Data Analyst Intern</div>
-                        </div>
-                        <span class="exp-date">March 2026 – May 2026</span>
-                    </div>
-                    <ul class="exp-desc">
-                        <li>Applied data cleaning, exploratory data analysis (EDA), and data visualization fundamentals.</li>
-                        <li>Explored Gen AI applications to enhance pattern detection and automated reporting.</li>
-                    </ul>
-                </div>
-
-                <div class="exp-item">
-                    <div class="exp-head">
-                        <div>
-                            <div class="exp-company">VOIS</div>
-                            <div class="exp-title">Cybersecurity Intern</div>
-                        </div>
-                        <span class="exp-date">March 2026 – April 2026</span>
-                    </div>
-                    <ul class="exp-desc">
-                        <li>Supported threat analysis, vulnerability assessment, and security monitoring fundamentals.</li>
-                        <li>Explored Gen AI security use cases to enhance threat detection automation.</li>
-                    </ul>
-                </div>
-
-                <div class="exp-item">
-                    <div class="exp-head">
-                        <div>
-                            <div class="exp-company">Microsoft</div>
-                            <div class="exp-title">Azure Intern</div>
-                        </div>
-                        <span class="exp-date">Jan 2026 – Feb 2026</span>
-                    </div>
-                    <ul class="exp-desc">
-                        <li>Built and deployed cloud solutions on Azure working with compute, storage, and networking.</li>
-                        <li>Implemented CI/CD pipelines using Azure DevOps and optimized cloud configurations.</li>
-                    </ul>
-                </div>
-
-                <div class="exp-item">
-                    <div class="exp-head">
-                        <div>
-                            <div class="exp-company">VOIS</div>
-                            <div class="exp-title">Cybersecurity & Gen AI Intern</div>
-                        </div>
-                        <span class="exp-date">Dec 2025 – Jan 2026</span>
-                    </div>
-                    <ul class="exp-desc">
-                        <li>Applied risk assessment, incident response flow, and defensive security practices.</li>
-                        <li>Integrated AI automation with security monitoring projects.</li>
-                    </ul>
-                </div>
-
-                <div class="exp-item">
-                    <div class="exp-head">
-                        <div>
-                            <div class="exp-company">UptoSkills</div>
-                            <div class="exp-title">VAPT Intern</div>
-                        </div>
-                        <span class="exp-date">Nov 2025 – Feb 2026</span>
-                    </div>
-                    <ul class="exp-desc">
-                        <li>Gained hands-on experience in vulnerability assessment and penetration testing best practices.</li>
-                        <li>Assisted in basic security assessments and analyzing practical security threats.</li>
-                    </ul>
-                </div>
-
-                <div class="exp-item">
-                    <div class="exp-head">
-                        <div>
-                            <div class="exp-company">ApexPlanet Software Pvt Ltd</div>
-                            <div class="exp-title">Cybersecurity Intern (Ethical Hacking & VAPT)</div>
-                        </div>
-                        <span class="exp-date">Sept 2025 – Oct 2025</span>
-                    </div>
-                    <ul class="exp-desc">
-                        <li>Executed vulnerability scanning, log analysis, and penetration testing tasks.</li>
-                        <li>Hands-on usage of Kali Linux, Wireshark, Nmap, and Metasploit.</li>
-                    </ul>
-                </div>
-
-                <div class="exp-item">
-                    <div class="exp-head">
-                        <div>
-                            <div class="exp-company">IBM</div>
-                            <div class="exp-title">Cloud & AI Intern</div>
-                        </div>
-                        <span class="exp-date">July 2025 – Aug 2025</span>
-                    </div>
-                    <ul class="exp-desc">
-                        <li>Integrated AI models into IBM Cloud applications and automated deployment workflows.</li>
-                        <li>Strengthened expertise in cloud security, networking, and scalability.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2 class="sec-header"><span>03.</span> Code Repositories</h2>
-            <div class="grid">
-                
-                <!-- NEW: Packet Sniffer Project - Featured -->
-                <div class="card" style="border-color: var(--accent);">
-                    <div>
-                        <h3 style="color: var(--accent); margin-bottom: 0.5rem;">🔍 Network Packet Sniffer</h3>
-                        <p style="color: var(--dim); font-size: 0.9rem;">Real-time network traffic monitoring tool with a beautiful web dashboard. Capture TCP/UDP/ICMP packets, live statistics, and export data as JSON, CSV, or TXT.</p>
-                        <div class="tag-list">
-                            <span class="tag">Python</span>
-                            <span class="tag">Flask</span>
-                            <span class="tag">Scapy</span>
-                            <span class="tag">WebSocket</span>
-                            <span class="tag">Real-time</span>
-                        </div>
-                        <!-- Live Demo Preview -->
-                        <div class="demo-preview" id="demoPreview">
-                            <div class="preview-line">🚀 Initializing packet sniffer demo...</div>
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
-                        <a href="https://github.com/ranejai954/packet-sniffer" target="_blank" class="btn" style="padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
-                        <a href="https://ranejai954.github.io/packet-sniffer" target="_blank" class="btn" style="padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fas fa-external-link-alt"></i> LIVE_DEMO</a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <h3 style="color: #fff; margin-bottom: 0.5rem;">VOIS Cybersecurity Log</h3>
-                        <p style="color: var(--dim); font-size: 0.9rem;">Engineering logs and workflows from the March 2026 Cybersecurity internship.</p>
-                        <div class="tag-list"><span class="tag">Threat-Analysis</span><span class="tag">VAPT</span></div>
-                    </div>
-                    <a href="https://github.com/ranejai954/vois-cybersecurity-internship-march2026" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
-                </div>
-
-                <div class="card">
-    <div>
-        <h3 style="color: #fff; margin-bottom: 0.5rem;">VOIS Cybersecurity-GenAI</h3>
-        <p style="color: var(--dim); font-size: 0.9rem;">
-            Integrating artificial intelligence frameworks with traditional blue-team monitoring workflows.
-        </p>
-
-        <div class="tag-list">
-            <span class="tag">GenAI</span>
-            <span class="tag">Security-Automation</span>
-        </div>
-
-        <!-- Live Demo Preview -->
-        <div class="demo-preview">
-            <div class="preview-line">
-                🤖 Initializing AI-powered intrusion detection demo...
-            </div>
-        </div>
-    </div>
-
-    <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
-        <a href="https://github.com/ranejai954/vois-cybersecurity-genai-internship"
-           target="_blank"
-           class="btn"
-           style="padding: 0.4rem 1rem; font-size: 0.8rem;">
-            <i class="fab fa-github"></i> VIEW_CODE
-        </a>
-
-        <a href="https://huggingface.co/spaces/jairane86/ai-network-intrusion-detection"
-           target="_blank"
-           class="btn"
-           style="padding: 0.4rem 1rem; font-size: 0.8rem;">
-            <i class="fas fa-external-link-alt"></i> LIVE_DEMO
-        </a>
-    </div>
-</div>
-                <div class="card">
-                    <div>
-                        <h3 style="color: #fff; margin-bottom: 0.5rem;">ApexPlanet VAPT Project Logs</h3>
-                        <p style="color: var(--dim); font-size: 0.9rem;">Vulnerability scanning, log analysis scripts, and ethical hacking assessment files.</p>
-                        <div class="tag-list"><span class="tag">Kali-Linux</span><span class="tag">Metasploit</span></div>
-                    </div>
-                    <a href="https://github.com/ranejai954/apexplanet-cybersecurity-internship" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <h3 style="color: #fff; margin-bottom: 0.5rem;">Vulnerability Scanning</h3>
-                        <p style="color: var(--dim); font-size: 0.9rem;">Network asset map exploration templates and service version identification scripts via Nmap.</p>
-                        <div class="tag-list"><span class="tag">Nmap</span><span class="tag">Recon</span></div>
-                    </div>
-                    <a href="https://github.com/ranejai954/vulenarability_scanning_nmap" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <h3 style="color: #fff; margin-bottom: 0.5rem;">Caesar Cipher Script</h3>
-                        <p style="color: var(--dim); font-size: 0.9rem;">A foundational Python implementation executing symmetric block shifts for payload text encryption.</p>
-                        <div class="tag-list"><span class="tag">Python</span><span class="tag">Cryptography</span></div>
-                    </div>
-                    <a href="https://github.com/ranejai954/ceaser-cypher-source-script" target="_blank" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-github"></i> VIEW_CODE</a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education">
-            <h2 class="sec-header"><span>04.</span> Education</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                <div style="background: var(--card); padding: 1.5rem; border: 1px solid var(--border); border-radius: 8px;">
-                    <h3 style="color: var(--accent);">B.Sc. Computer Science</h3>
-                    <p style="font-size: 0.9rem; color: #fff;">Keraleeya Samajam's Model College</p>
-                    <p style="font-family: 'JetBrains Mono'; font-size: 0.8rem; color: var(--dim);">2024 – 2027 (Expected)</p>
-                </div>
-                <div style="background: var(--card); padding: 1.5rem; border: 1px solid var(--border); border-radius: 8px;">
-                    <h3 style="color: var(--accent);">Certifications</h3>
-                    <div class="tag-list">
-                        <span class="tag">Junior Cybersecurity Analyst (Cisco)</span>
-                        <span class="tag">RAG with LangChain</span>
-                        <span class="tag">Google Cloud Trust & Security</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" style="text-align: center;">
-            <h2 class="sec-header" style="justify-content: center;"><span>05.</span> Connect</h2>
-            <p style="color: var(--dim); margin-bottom: 2rem;">"Let's connect if you're building security teams that value proactive defense."</p>
-            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-               
-<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-    <a href="mailto:ranejai954@gmail.com" class="btn">
-        <i class="fas fa-envelope"></i> EMAIL_ME
-    </a>
-
-    <a href="https://www.linkedin.com/in/jai-rane-62ba58352" target="_blank" class="btn">
-        <i class="fab fa-linkedin"></i> LINKEDIN
-    </a>
-
-    <a href="https://github.com/ranejai954" target="_blank" class="btn">
-        <i class="fab fa-github"></i> GITHUB
-    </a>
-</div>
-            </div>
-        </section>
-
-        <footer>
-            <p>&copy; 2026 JAI RANE | MUMBAI, MH</p>
-        </footer>
-    </div>
-
-    <script>
-        // Matrix Rain
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        const letters = "01010101SECURITY";
-        const fontSize = 14;
-        const columns = canvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1);
-
-        function draw() {
-            ctx.fillStyle = "rgba(5, 5, 5, 0.05)";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "#00ff41";
-            ctx.font = fontSize + "px 'JetBrains Mono'";
-            drops.forEach((y, i) => {
-                const text = letters[Math.floor(Math.random() * letters.length)];
-                ctx.fillText(text, i * fontSize, y * fontSize);
-                if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-                drops[i]++;
-            });
-        }
-        setInterval(draw, 50);
-
-        // Typewriter
-        const strings = ["Aspiring SOC Analyst.", "Threat Detection Specialist.", "Ethical Hacker."];
-        let strIdx = 0, charIdx = 0;
-        const typeEl = document.getElementById('typewriter');
-
-        function type() {
-            if (charIdx < strings[strIdx].length) {
-                typeEl.textContent += strings[strIdx].charAt(charIdx);
-                charIdx++;
-                setTimeout(type, 100);
-            } else {
-                setTimeout(erase, 2000);
-            }
-        }
-        function erase() {
-            if (charIdx > 0) {
-                typeEl.textContent = strings[strIdx].substring(0, charIdx - 1);
-                charIdx--;
-                setTimeout(erase, 50);
-            } else {
-                strIdx = (strIdx + 1) % strings.length;
-                setTimeout(type, 500);
-            }
-        }
-        type();
-
-        // Scroll Logic
-        window.onscroll = () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            sections.forEach(sec => {
-                const top = window.scrollY, offset = sec.offsetTop - 150, height = sec.offsetHeight, id = sec.getAttribute('id');
-                if (top >= offset && top < offset + height) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        const targetLink = document.querySelector('.nav-links a[href*=' + id + ']');
-                        if(targetLink) targetLink.classList.add('active');
-                    });
-                    if (id === 'home') {
-                        document.querySelectorAll('.progress-fill').forEach(bar => bar.style.width = bar.getAttribute('data-percent'));
-                    }
-                }
-            });
-        };
-        setTimeout(() => {
-            document.querySelectorAll('.progress-fill').forEach(bar => bar.style.width = bar.getAttribute('data-percent'));
-        }, 500);
-
-        // Live Demo Preview Simulation
-        const previewLines = [
-            "[14:30:22] 192.168.1.100 → 8.8.8.8 | TCP | 128 bytes",
-            "[14:30:23] 10.0.0.1 → 192.168.1.1 | UDP | 256 bytes",
-            "[14:30:24] 172.16.0.1 → 1.1.1.1 | ICMP | 64 bytes",
-            "[14:30:25] 192.168.1.105 → 192.168.1.1 | TCP | 512 bytes",
-            "[14:30:26] 10.0.0.25 → 8.8.4.4 | UDP | 1420 bytes"
-        ];
+        .hero-name em { font-style: normal; color: var(--blue); }
+        .hero-stage { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.25em; color: var(--violet); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+        .hero-stage .stage-num { background: var(--violet2); color: #fff; font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 1px; }
+        .hero-typed { font-family: var(--mono); font-size: clamp(0.9rem, 2vw, 1.2rem); color: var(--cyan); min-height: 1.6em; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .caret { display: inline-block; width: 2px; height: 1.1em; background: var(--cyan); animation: caretBlink 0.9s step-end infinite; }
+        @keyframes caretBlink { 0%,100%{opacity:1} 50%{opacity:0} }
+        .hero-bio { max-width: 540px; color: var(--dim); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2.2rem; }
         
-        let lineIndex = 0;
-        const demoPreview = document.getElementById('demoPreview');
-        
-        function addPreviewLine() {
-            if (demoPreview && lineIndex < previewLines.length) {
-                const line = document.createElement('div');
-                line.className = 'preview-line';
-                line.innerHTML = `📡 ${previewLines[lineIndex]}`;
-                demoPreview.appendChild(line);
-                lineIndex++;
-                
-                // Auto-scroll to bottom
-                demoPreview.scrollTop = demoPreview.scrollHeight;
-            }
-        }
-        
-        // Add lines every 1.5 seconds
-        setInterval(addPreviewLine, 1500);
-        
-        // Initial demo message
-        setTimeout(() => {
-            if (demoPreview) {
-                const initLine = document.createElement('div');
-                initLine.className = 'preview-line';
-                initLine.innerHTML = '✅ Packet sniffer active | Export: JSON/CSV/TXT';
-                demoPreview.appendChild(initLine);
-            }
-        }, 1000);
-    </script>
-</body>
-</html>
+        /* Initial D HUD HUD Matrix */
+        .hero-readout { display: flex; margin-bottom: 2.2rem; border: 1px solid var(--border); border-radius: 2px; overflow: hidden; max-width: 540px; }
+        .readout-cell { flex: 1; padding: 0.8rem 1rem; border-right: 1px solid var(--border); background: var(--card); }
+        .readout-cell:last-child { border-right: none; }
+        .readout-val { font-family: var(--mono); font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1; }
+        .readout-val sup { font-size: 0.65rem; color: var(--blue); vertical-align: super; font-weight: 400; }
+        .readout-key { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em; color: var(--dim); margin-top: 0.3rem; }
+
+        .hero-alerts { display: flex; gap: 0.5rem; margin-bottom: 2.2rem; flex-wrap: wrap; }
+        .alert-pill { display: flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.05em; padding: 0.25rem 0.65rem; border-radius: 1px; border: 1px solid; }
+        .ap-blue { color: var(--blue); border-color: rgba(26,143,255,0.2); background: var(--blue-dim); }
+        .ap-violet { color: var(--violet); border-color: rgba(155,77,255,0.2); background: var(--vdim); }
+        .ap-yellow { color: var(--yellow); border-color: rgba(245,197,24,0.15); background: var(--ydim); }
+        .alert-dot { width: 5px; height: 5px; border-radius: 50%; }
+        .d-blue { background: var(--blue); } .d-violet { background: var(--violet); } .d-yellow { background: var(--yellow); }
+
+        .hero-cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .cta { display: inline-flex; align-items: center; gap: 0.45rem; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; padding: 0.7rem 1.3rem; border-radius: 2px; text-decoration: none; transition: all 0.2s; border: 1px solid; cursor: pointer; }
+        .cta-solid { background: var(--blue2); color: #fff; border-color: var(--blue); font-weight: 600; }
+        .cta-solid:hover { background: var(--blue); box-shadow: 0 0 25px rgba(26,143,255,0.35); transform: translateY(-1px); }
+        .cta-line-v { background: transparent; color: var(--violet); border-color: var(--violet2); }
+        .cta-line-v:hover { background: var(--vdim); box-shadow: 0 0 20px rgba(155,77,255,0.2); transform: translateY(-1px); }
+
+        /* Section Structural Systems */
+        section { padding: 100px 0; border-bottom: 1px solid rgba(26,100,200,0.05); position: relative; }
+        .sec-release { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; }
+        .release-bar { width: 32px; height: 1px; background: var(--violet); }
+        .release-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.25em; color: var(--violet); text-transform: uppercase; }
+        .sec-heading { font-family: var(--head); font-weight: 800; font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1; color: #fff; letter-spacing: -0.01em; margin-bottom: 2.5rem; text-transform: uppercase; }
+
+        /* Live Terminal Module Layout */
+        .terminal-container { background: #02070f; border: 1px solid var(--border); border-top: 3px solid var(--violet2); border-radius: 4px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); overflow: hidden; margin-top: 1rem; }
+        .term-header { background: #040c17; padding: 0.6rem 1rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+        .term-dots { display: flex; gap: 0.4rem; } .tdot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.15); }.tdot-red { background: var(--red); }.term-title { font-family: var(--mono); font-size: 0.65rem; color: var(--dim); letter-spacing: 0.05em; }.term-body { padding: 1.2rem; font-family: var(--mono); font-size: 0.82rem; height: 380px; overflow-y: auto; color: var(--text); display: flex; flex-direction: column; gap: 0.5rem; }.term-history { display: flex; flex-direction: column; gap: 0.4rem; }.term-line { line-height: 1.5; white-space: pre-wrap; }.term-prompt { display: flex; align-items: center; gap: 0.5rem; width: 100%; }.tprompt-prefix { color: var(--cyan); font-weight: bold; white-space: nowrap; }.term-input { background: transparent; border: none; outline: none; color: #fff; font-family: var(--mono); font-size: 0.82rem; flex: 1; width: 100%; }/* Initial D Tachometer Grid Layout */.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }.skill-bar-card { background: var(--card); border: 1px solid var(--border); padding: 1.2rem; border-radius: 2px; }.sb-meta { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 0.5rem; font-family: var(--mono); }.sb-title { font-size: 0.78rem; font-weight: bold; color: #fff; letter-spacing: 0.02em; }.sb-level { font-size: 0.65rem; color: var(--cyan); }.sb-track { height: 6px; background: rgba(26,143,255,0.05); border: 1px solid rgba(26,100,200,0.1); border-radius: 1px; overflow: hidden; position: relative; }.sb-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--blue), var(--cyan)); border-radius: 1px; transition: width 1.5s cubic-bezier(0.1, 0.8, 0.2, 1); }.sb-fill-v { background: linear-gradient(90deg, var(--violet2), var(--violet)); }.sb-fill-y { background: linear-gradient(90deg, #d4a017, var(--yellow)); }/* Classified Dossier Cards Layout */.dossier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }.dossier-card { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--blue); padding: 1.5rem; border-radius: 2px; position: relative; transition: all 0.25s; display: flex; flex-direction: column; justify-content: space-between; }.dossier-card:hover { border-color: var(--violet); border-left-color: var(--violet); box-shadow: 0 10px 30px rgba(155,77,255,0.06); transform: translateY(-2px); }.dc-top { margin-bottom: 1.2rem; }.dc-meta { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.6rem; color: var(--dim); letter-spacing: 0.05em; margin-bottom: 0.6rem; }.dc-tag { color: var(--red); font-weight: bold; }.dc-title { font-family: var(--head); font-size: 1.6rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; letter-spacing: 0.02em; text-transform: uppercase; }.dc-desc { color: var(--dim); font-size: 0.88rem; line-height: 1.6; font-family: var(--body); }.dc-techs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }.dct-tag { font-family: var(--mono); font-size: 0.6rem; background: var(--card2); border: 1px solid var(--border); padding: 0.15rem 0.45rem; color: var(--text); }.dc-links { display: flex; gap: 0.8rem; font-family: var(--mono); font-size: 0.72rem; border-top: 1px solid rgba(26,100,200,0.08); padding-top: 0.8rem; }.dc-links a { color: var(--blue); text-decoration: none; display: flex; align-items: center; gap: 0.3rem; }.dc-links a:hover { color: var(--cyan); text-decoration: underline; }/* Operational Timeline Section Layout */.timeline { max-width: 800px; position: relative; margin-top: 1rem; }.timeline::before { content: ''; position: absolute; left: 16px; top: 0; bottom: 0; width: 1px; background: var(--border); }.tl-item { position: relative; padding-left: 45px; margin-bottom: 2.5rem; }.tl-item:last-child { margin-bottom: 0; }.tl-node { position: absolute; left: 12px; top: 5px; width: 9px; height: 9px; border-radius: 50%; background: var(--bg); border: 2px solid var(--violet); box-shadow: 0 0 8px var(--violet); z-index: 2; transition: all 0.2s; }.tl-item:hover .tl-node { background: var(--cyan); border-color: var(--cyan); box-shadow: 0 0 12px var(--cyan); }.tl-header { margin-bottom: 0.5rem; }.tl-meta { display: flex; align-items: center; gap: 0.6rem; font-family: var(--mono); font-size: 0.65rem; color: var(--dim); margin-bottom: 0.25rem; }.tl-badge { background: var(--rdim); color: var(--red); border: 1px solid rgba(232,41,58,0.2); padding: 0.1rem 0.4rem; font-weight: bold; border-radius: 1px; }.tl-title { font-family: var(--head); font-size: 1.4rem; font-weight: 700; color: #fff; line-height: 1.2; text-transform: uppercase; }.tl-corp { color: var(--blue); font-size: 0.85rem; font-family: var(--mono); margin-top: 0.1rem; }.tl-body { color: var(--dim); font-size: 0.9rem; line-height: 1.6; }.tl-body ul { list-style: none; margin-top: 0.4rem; display: flex; flex-direction: column; gap: 0.3rem; }.tl-body li { position: relative; padding-left: 0.8rem; }.tl-body li::before { content: '›'; position: absolute; left: 0; color: var(--violet); font-weight: bold; }/* Footer Grid Segment */footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 2rem 0; font-family: var(--mono); font-size: 0.65rem; color: var(--dim); }.foot-wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }.foot-left { display: flex; align-items: center; gap: 0.5rem; }.foot-right a { color: var(--dim); text-decoration: none; margin-left: 1rem; }.foot-right a:hover { color: var(--blue); }@media (max-width: 768px) {.nav-links { display: none; }nav { padding: 0 1rem; }.wrap { padding: 0 1rem; }.hero-readout { flex-direction: column; }.readout-cell { border-right: none; border-bottom: 1px solid var(--border); }.readout-cell:last-child { border-bottom: none; }}[JAI RANE]// THREAT ANALYST/home/terminal/arsenal/dossier/operationsSYS_STATUS: ACTIVEPYTHON AUTOMATION FLUIDITY82% // SECTOR_4
