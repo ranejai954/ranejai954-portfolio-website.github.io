@@ -98,8 +98,8 @@ nav {
 
 /* ── HERO ── */
 .hero {
-  min-height:100vh; display:flex; flex-direction:column;
-  justify-content:center; padding-top:54px; position:relative;
+  position:relative;
+  /* layout handled by .hero.vid-section > .wrap */
 }
 
 /* case file tag — Monster aesthetic */
@@ -209,7 +209,10 @@ nav {
 .cta-ghost:hover { color:var(--text); border-color:rgba(26,100,200,0.4); }
 
 /* ── SECTION SYSTEM ── */
-section { padding:90px 0; position:relative; z-index:2; }
+section { position:relative; z-index:2; }
+/* Non-video sections still need padding via their own .wrap */
+section:not(.vid-section) { padding:90px 0; }
+section:not(.vid-section) > .wrap { max-width:1080px; margin:0 auto; padding:0 2rem; }
 
 /* Bleach — zanpakuto release call header format */
 .sec-release {
@@ -574,10 +577,16 @@ footer {
   );
 }
 
-/* everything inside a vid-section needs z-index above overlay */
-.vid-section > .wrap,
-.vid-section > *:not(.section-video):not(.vid-overlay) {
+/* content inside vid-section: above video + overlay */
+.vid-section > .wrap {
   position:relative; z-index:2;
+  max-width:1080px; margin:0 auto; padding:90px 2rem;
+}
+/* hero section needs its own padding-top for nav offset */
+.hero.vid-section > .wrap {
+  min-height:100vh;
+  display:flex; flex-direction:column; justify-content:center;
+  padding-top:calc(54px + 4rem); padding-bottom:4rem;
 }
 
 /* ── MUTE BUTTON ── */
@@ -655,33 +664,27 @@ footer {
   <div class="nav-ping"><div class="ping-dot"></div>BLUE_TEAM: ACTIVE</div>
 </nav>
 
-<div class="wrap">
-
-<!-- HERO — Bleach Bankai / hollow scene video bg -->
-<!--
-  HOW TO ADD YOUR VIDEO:
-  1. Download a Bleach AMV clip (Bankai release, Ichigo hollow mask, etc.)
-     yt-dlp command: yt-dlp -f "bestvideo[ext=mp4][height<=1080]" "YOUTUBE_URL" -o "assets/hero-bg.mp4"
-  2. Trim to 8-15 seconds in any editor (CapCut, DaVinci, VLC)
-  3. Put the file at: assets/hero-bg.mp4
-  4. The video will auto-loop. Audio starts MUTED — user can unmute via the button bottom-right.
-  5. Opacity is set to 0.09 (very subtle). Change --vid-opacity on .hero to adjust.
--->
+<!-- ═══════════════════════════════════════════
+     HERO — full-width section, video behind content
+     Add your Bleach Bankai clip at: assets/hero-bg.mp4
+     yt-dlp: yt-dlp -f "bestvideo[ext=mp4][height<=1080]" "URL" -o "assets/hero-bg.mp4"
+     Trim to 8-15s. Opacity controlled by CSS var below.
+═══════════════════════════════════════════ -->
 <section class="hero vid-section" id="home" style="--vid-opacity:0.10">
   <video class="section-video" id="vid-hero"
     src="assets/hero-bg.mp4"
-    autoplay muted loop playsinline
-    preload="metadata">
+    autoplay muted loop playsinline preload="metadata">
   </video>
   <div class="vid-overlay"></div>
-  <!-- Placeholder shown until you add the video file -->
   <div class="vid-placeholder">
     <div class="vid-placeholder-inner">
-      VIDEO BG SLOT · assets/hero-bg.mp4<br>
-      BLEACH — BANKAI RELEASE SCENE<br>
-      8–15s LOOP · OPACITY 0.10
+      VIDEO SLOT · assets/hero-bg.mp4<br>
+      BLEACH — BANKAI RELEASE<br>
+      8–15s LOOP
     </div>
   </div>
+
+  <div class="wrap">
   <!-- Monster case file tag -->
   <div class="hero-case">
     <span class="case-id">CASE-FILE #2024-MH</span>
@@ -738,33 +741,29 @@ footer {
     <a href="#terminal" class="cta cta-line-v"><i class="fas fa-code"></i> OPEN SHELL</a>
     <a href="mailto:ranejai954@gmail.com" class="cta cta-ghost"><i class="fas fa-envelope"></i> SIGNAL ME</a>
   </div>
-</section>
-<!-- END HERO -->
+  </div><!-- /wrap -->
+</section><!-- END HERO -->
 
-<!-- ABOUT / SKILLS — Initial D touge night highway video bg -->
-<!--
-  HOW TO ADD YOUR VIDEO:
-  1. Download an Initial D clip (AE86 mountain pass, night highway, racing scene)
-     yt-dlp command: yt-dlp -f "bestvideo[ext=mp4][height<=1080]" "YOUTUBE_URL" -o "assets/skills-bg.mp4"
-  2. Trim to 10-15 seconds — ideally a scene with motion blur / speed lines
-  3. Put the file at: assets/skills-bg.mp4
-  4. Opacity 0.07 — keeps it very subtle behind the skill cards
--->
+<!-- ═══════════════════════════════════════════
+     SKILLS — Initial D touge night clip
+     Add: assets/skills-bg.mp4
+     yt-dlp: yt-dlp -f "bestvideo[ext=mp4][height<=1080]" "URL" -o "assets/skills-bg.mp4"
+═══════════════════════════════════════════ -->
 <section id="about" class="vid-section" style="--vid-opacity:0.07">
   <video class="section-video" id="vid-skills"
     src="assets/skills-bg.mp4"
-    autoplay muted loop playsinline
-    preload="metadata">
+    autoplay muted loop playsinline preload="metadata">
   </video>
   <div class="vid-overlay"></div>
   <div class="vid-placeholder">
     <div class="vid-placeholder-inner">
-      VIDEO BG SLOT · assets/skills-bg.mp4<br>
-      INITIAL D — TOUGE NIGHT RACE SCENE<br>
-      10–15s LOOP · OPACITY 0.07
+      VIDEO SLOT · assets/skills-bg.mp4<br>
+      INITIAL D — TOUGE NIGHT RACE<br>
+      10–15s LOOP
     </div>
   </div>
-  <!-- Bleach zanpakuto release-call header format, original language -->
+
+  <div class="wrap">
   <div class="sec-release">
     <div class="release-bar"></div>
     <div class="release-tag">ZANPAKUTO RELEASE · SHIKAI ACTIVATED</div>
@@ -866,10 +865,12 @@ footer {
     </div>
 
   </div>
+  </div><!-- /wrap -->
 </section>
 
 <!-- EXPERIENCE -->
 <section id="experience">
+<div class="wrap">
   <div class="sec-release">
     <div class="release-bar"></div>
     <div class="release-tag">MISSION LOG · FIELD OPERATIONS</div>
@@ -1009,6 +1010,7 @@ footer {
     </div>
 
   </div>
+</div><!-- /wrap -->
 </section>
 
 <!-- PROJECTS — Monster anime cold city / rain atmosphere video bg -->
@@ -1029,11 +1031,13 @@ footer {
   <div class="vid-overlay"></div>
   <div class="vid-placeholder">
     <div class="vid-placeholder-inner">
-      VIDEO BG SLOT · assets/projects-bg.mp4<br>
-      MONSTER — COLD CITY / RAIN ATMOSPHERE<br>
-      10–15s LOOP · OPACITY 0.08
+      VIDEO SLOT · assets/projects-bg.mp4<br>
+      MONSTER — COLD CITY / RAIN<br>
+      10–15s LOOP
     </div>
   </div>
+
+  <div class="wrap">
   <div class="sec-release">
     <div class="release-bar"></div>
     <div class="release-tag">ZANPAKUTO TECHNIQUES · DEPLOYED TOOLS</div>
@@ -1191,10 +1195,12 @@ footer {
     </div>
 
   </div>
+  </div><!-- /wrap -->
 </section>
 
 <!-- TERMINAL -->
 <section id="terminal">
+<div class="wrap">
   <div class="sec-release">
     <div class="release-bar"></div>
     <div class="release-tag">SYSTEM ACCESS · COMMAND INTERFACE</div>
@@ -1227,10 +1233,12 @@ footer {
     </div>
     <div class="t-hint">whoami · skills · projects · missions · contact · socials · bankai · weather · clear · help</div>
   </div>
+</div><!-- /wrap -->
 </section>
 
 <!-- CERTS -->
 <section id="certs">
+<div class="wrap">
   <div class="sec-release">
     <div class="release-bar"></div>
     <div class="release-tag">SEALED TECHNIQUES · VERIFIED CAPABILITY</div>
@@ -1271,10 +1279,12 @@ footer {
       <div class="cert-domain">VAPT · ETHICAL HACKING</div>
     </div>
   </div>
+</div><!-- /wrap -->
 </section>
 
 <!-- EDUCATION -->
 <section id="education">
+<div class="wrap">
   <div class="sec-release">
     <div class="release-bar"></div>
     <div class="release-tag">ACADEMIC ORIGIN · BASE TRAINING</div>
@@ -1288,10 +1298,12 @@ footer {
     <div class="edu-yr">2024 – 2027 (Expected)</div>
     <div class="edu-rel">Coursework: Cybersecurity · Network Security · Cryptography · Operating Systems · DBMS</div>
   </div>
+</div><!-- /wrap -->
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
+<div class="wrap">
   <div class="sec-release">
     <div class="release-bar"></div>
     <div class="release-tag">OPEN CHANNEL · SIGNAL PROTOCOL</div>
@@ -1325,64 +1337,79 @@ footer {
       </a>
     </div>
   </div>
+</div><!-- /wrap -->
 </section>
-
-</div>
 
 <footer>
   <p>© 2026 JAI RANE · MUMBAI, MH · BLUE TEAM ANALYST · 守る者</p>
 </footer>
 
 <script>
-/* ── CANVAS ── */
+/* ── CANVAS — optimised, no O(n²) connections ── */
 (function(){
   const c = document.getElementById('bgc');
   const x = c.getContext('2d');
-  let W, H;
+  let W, H, raf;
+
   function rs(){
-    W = c.width = window.innerWidth;
+    W = c.width  = window.innerWidth;
     H = c.height = window.innerHeight;
   }
-  rs(); window.addEventListener('resize',rs);
+  rs();
+  window.addEventListener('resize', () => { rs(); });
 
-  // particles
-  const pts = Array.from({length:70},()=>({
-    x:Math.random()*W, y:Math.random()*H,
-    vx:(Math.random()-.5)*.35, vy:(Math.random()-.5)*.35,
-    r:Math.random()*1.4+0.4,
-    col:['rgba(26,143,255,','rgba(155,77,255,','rgba(0,200,232,','rgba(245,197,24,'][Math.floor(Math.random()*4)],
-    a:Math.random()*.4+0.1
+  // Fewer particles, no connection loops
+  const COLS = ['rgba(26,143,255,','rgba(155,77,255,','rgba(0,200,232,','rgba(245,197,24,'];
+  const pts = Array.from({length:40}, () => ({
+    x: Math.random()*window.innerWidth,
+    y: Math.random()*window.innerHeight,
+    vx: (Math.random()-.5)*.3,
+    vy: (Math.random()-.5)*.3,
+    r:  Math.random()*1.2+0.4,
+    col: COLS[Math.floor(Math.random()*4)],
+    a:  Math.random()*.35+0.08
   }));
 
-  function frame(){
-    x.clearRect(0,0,W,H);
-    // grid
-    x.strokeStyle='rgba(20,70,160,0.07)'; x.lineWidth=.5;
-    for(let i=0;i<W;i+=90){x.beginPath();x.moveTo(i,0);x.lineTo(i,H);x.stroke();}
-    for(let i=0;i<H;i+=90){x.beginPath();x.moveTo(0,i);x.lineTo(W,i);x.stroke();}
-    // connections
-    for(let i=0;i<pts.length;i++){
-      for(let j=i+1;j<pts.length;j++){
-        const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y;
-        const d=Math.sqrt(dx*dx+dy*dy);
-        if(d<110){
-          x.strokeStyle=`rgba(26,80,200,${.08*(1-d/110)})`;
-          x.lineWidth=.4;
-          x.beginPath();x.moveTo(pts[i].x,pts[i].y);x.lineTo(pts[j].x,pts[j].y);x.stroke();
-        }
-      }
-    }
-    // dots
-    pts.forEach(p=>{
-      p.x+=p.vx; p.y+=p.vy;
-      if(p.x<0||p.x>W)p.vx*=-1;
-      if(p.y<0||p.y>H)p.vy*=-1;
-      x.beginPath(); x.arc(p.x,p.y,p.r,0,Math.PI*2);
-      x.fillStyle=p.col+p.a+')'; x.fill();
-    });
-    requestAnimationFrame(frame);
+  // Draw grid once on an offscreen canvas — never redrawn
+  const og = document.createElement('canvas');
+  function buildGrid(){
+    og.width = W; og.height = H;
+    const gx = og.getContext('2d');
+    gx.strokeStyle = 'rgba(20,70,160,0.06)';
+    gx.lineWidth = 0.5;
+    for(let i=0; i<W; i+=90){ gx.beginPath(); gx.moveTo(i,0); gx.lineTo(i,H); gx.stroke(); }
+    for(let i=0; i<H; i+=90){ gx.beginPath(); gx.moveTo(0,i); gx.lineTo(W,i); gx.stroke(); }
   }
-  frame();
+  buildGrid();
+  window.addEventListener('resize', buildGrid);
+
+  let last = 0;
+  function frame(ts){
+    // Cap to ~40fps to save CPU
+    if(ts - last < 25){ raf = requestAnimationFrame(frame); return; }
+    last = ts;
+
+    x.clearRect(0,0,W,H);
+    x.drawImage(og,0,0);
+
+    pts.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if(p.x < 0 || p.x > W) p.vx *= -1;
+      if(p.y < 0 || p.y > H) p.vy *= -1;
+      x.beginPath();
+      x.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      x.fillStyle = p.col + p.a + ')';
+      x.fill();
+    });
+    raf = requestAnimationFrame(frame);
+  }
+  raf = requestAnimationFrame(frame);
+
+  // Pause canvas when tab not visible
+  document.addEventListener('visibilitychange', () => {
+    if(document.hidden){ cancelAnimationFrame(raf); }
+    else { raf = requestAnimationFrame(frame); }
+  });
 })();
 
 /* ── TYPEWRITER ── */
@@ -1588,77 +1615,99 @@ footer {
   document.querySelector('.term-shell').addEventListener('click',()=>inp.focus());
 })();
 
-/* ── VIDEO MANAGER + MUTE TOGGLE ── */
+/* ── VIDEO MANAGER — section-aware audio, no simultaneous playback ── */
 (function(){
-  const videos = [
-    document.getElementById('vid-hero'),
-    document.getElementById('vid-skills'),
-    document.getElementById('vid-projects'),
-  ].filter(Boolean);
+  // Map each video to its section
+  const vidSections = [
+    { id: 'vid-hero',     sec: 'home'     },
+    { id: 'vid-skills',   sec: 'about'    },
+    { id: 'vid-projects', sec: 'projects' },
+  ];
+
+  const entries = vidSections.map(({ id, sec }) => ({
+    vid: document.getElementById(id),
+    sec: document.getElementById(sec),
+  })).filter(e => e.vid && e.sec);
 
   const muteBtn   = document.getElementById('muteBtn');
   const muteLabel = document.getElementById('muteBtnLabel');
+  let userWantsAudio = false;   // user must click unmute before any audio plays
+  let anyLoaded = false;
+  let activeVid = null;         // only one video plays audio at a time
 
-  // Track mute state — starts MUTED (true)
-  // Videos always start muted (browser policy), user must interact to unmute
-  let isMuted = true;
-  let anyVideoLoaded = false;
+  // Init all videos: muted, attempt autoplay
+  entries.forEach(({ vid, sec }) => {
+    vid.muted = true;
 
-  // When a video has enough data, fade it in and show mute button
-  videos.forEach(v => {
-    // Hide the placeholder once video starts playing
-    v.addEventListener('loadeddata', () => {
-      v.classList.add('loaded');
-      // Hide the placeholder div in the same section
-      const placeholder = v.closest('section').querySelector('.vid-placeholder');
-      if (placeholder) placeholder.style.display = 'none';
-      if (!anyVideoLoaded) {
-        anyVideoLoaded = true;
+    vid.addEventListener('loadeddata', () => {
+      vid.classList.add('loaded');
+      const ph = sec.querySelector('.vid-placeholder');
+      if (ph) ph.style.display = 'none';
+      if (!anyLoaded) {
+        anyLoaded = true;
         muteBtn.classList.add('visible');
       }
     });
 
-    // If src is missing/broken, keep placeholder visible, don't break page
-    v.addEventListener('error', () => {
-      // silently ignore — placeholder stays visible
-    });
-
-    // Try to play (will work since autoplay+muted)
-    v.play().catch(() => {});
+    vid.addEventListener('error', () => { /* file not found, placeholder stays */ });
+    vid.play().catch(() => {});
   });
 
-  // Mute button logic
-  muteBtn.addEventListener('click', () => {
-    isMuted = !isMuted;
-    videos.forEach(v => {
-      v.muted = isMuted;
-      // Resume play if needed (some browsers pause on unmute attempt)
-      if (!v.paused) return;
-      v.play().catch(() => { v.muted = true; isMuted = true; });
+  // IntersectionObserver: play/pause by visibility + switch audio to active section
+  const io = new IntersectionObserver(ioEntries => {
+    ioEntries.forEach(ioE => {
+      const match = entries.find(e => e.sec === ioE.target);
+      if (!match) return;
+      const { vid } = match;
+
+      if (ioE.isIntersecting && ioE.intersectionRatio >= 0.4) {
+        // This section is the dominant one — give it audio if user wants it
+        vid.play().catch(() => {});
+        if (activeVid && activeVid !== vid) {
+          activeVid.muted = true;  // silence the previous section's video
+        }
+        activeVid = vid;
+        vid.muted = !userWantsAudio;
+      } else if (!ioE.isIntersecting) {
+        vid.pause();
+        vid.muted = true;
+      }
     });
-    if (isMuted) {
-      muteBtn.classList.remove('unmuted');
-      muteLabel.textContent = 'MUTE: ON';
-    } else {
+  }, {
+    threshold: [0, 0.4],
+  });
+
+  entries.forEach(({ sec }) => io.observe(sec));
+
+  // Mute button — toggles audio for whichever section is currently active
+  muteBtn.addEventListener('click', () => {
+    userWantsAudio = !userWantsAudio;
+    if (activeVid) {
+      activeVid.muted = !userWantsAudio;
+      // Some browsers need a play() call after unmuting
+      if (userWantsAudio && activeVid.paused) {
+        activeVid.play().catch(() => { activeVid.muted = true; userWantsAudio = false; });
+      }
+    }
+    if (userWantsAudio) {
       muteBtn.classList.add('unmuted');
       muteLabel.textContent = 'MUTE: OFF';
+    } else {
+      muteBtn.classList.remove('unmuted');
+      muteLabel.textContent = 'MUTE: ON';
+      // Silence all just in case
+      entries.forEach(({ vid }) => { vid.muted = true; });
     }
   });
 
-  // Pause videos when section is not in viewport (performance)
-  const secObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      const vid = e.target.querySelector('.section-video');
-      if (!vid) return;
-      if (e.isIntersecting) {
-        vid.play().catch(() => {});
-      } else {
-        vid.pause();
-      }
-    });
-  }, { threshold: 0.05 });
-
-  document.querySelectorAll('.vid-section').forEach(s => secObs.observe(s));
+  // Pause everything when tab hidden
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      entries.forEach(({ vid }) => vid.pause());
+    } else {
+      if (activeVid) activeVid.play().catch(() => {});
+    }
+  });
 })();
 </script>
 </body>
