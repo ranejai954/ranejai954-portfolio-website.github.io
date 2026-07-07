@@ -99,7 +99,7 @@ nav {
 /* ── HERO ── */
 .hero {
   position:relative;
-  /* layout handled by .hero.vid-section > .wrap */
+  /* layout handled by .hero. > .wrap */
 }
 
 /* case file tag — Monster aesthetic */
@@ -211,8 +211,8 @@ nav {
 /* ── SECTION SYSTEM ── */
 section { position:relative; z-index:2; }
 /* Non-video sections still need padding via their own .wrap */
-section:not(.vid-section) { padding:90px 0; }
-section:not(.vid-section) > .wrap { max-width:1080px; margin:0 auto; padding:0 2rem; }
+section:not(.) { padding:90px 0; }
+section:not(.) > .wrap { max-width:1080px; margin:0 auto; padding:0 2rem; }
 
 /* Bleach — zanpakuto release call header format */
 .sec-release {
@@ -558,7 +558,7 @@ footer {
 .vguide code { color:var(--cyan); }
 
 /* ── VIDEO BACKGROUNDS ── */
-.vid-section { position:relative; overflow:hidden; }
+. { position:relative; overflow:hidden; }
 
 .section-video {
   position:absolute; inset:0; width:100%; height:100%;
@@ -577,13 +577,13 @@ footer {
   );
 }
 
-/* content inside vid-section: above video + overlay */
-.vid-section > .wrap {
+/* content inside : above video + overlay */
+. > .wrap {
   position:relative; z-index:2;
   max-width:1080px; margin:0 auto; padding:90px 2rem;
 }
 /* hero section needs its own padding-top for nav offset */
-.hero.vid-section > .wrap {
+.hero. > .wrap {
   min-height:100vh;
   display:flex; flex-direction:column; justify-content:center;
   padding-top:calc(54px + 4rem); padding-bottom:4rem;
@@ -641,10 +641,7 @@ footer {
 <canvas id="bgc"></canvas>
 
 <!-- GLOBAL MUTE BUTTON — controls all section videos -->
-<button id="muteBtn" title="Toggle video audio">
-  <div class="mb-dot"></div>
-  <span id="muteBtnLabel">MUTE: ON</span>
-</button>
+
 
 <!-- NAV -->
 <nav>
@@ -670,18 +667,10 @@ footer {
      yt-dlp: yt-dlp -f "bestvideo[ext=mp4][height<=1080]" "URL" -o "assets/hero-bg.mp4"
      Trim to 8-15s. Opacity controlled by CSS var below.
 ═══════════════════════════════════════════ -->
-<section class="hero vid-section" id="home" style="--vid-opacity:0.10">
-  <video class="section-video" id="vid-hero"
-    src="assets/hero-bg.mp4"
-    autoplay muted loop playsinline preload="metadata">
-  </video>      
-  <div class="vid-overlay"></div>
-  <div class="vid-placeholder">
-    <div class="vid-placeholder-inner">
-      VIDEO SLOT · assets/hero-bg.mp4<br>
-      BLEACH — BANKAI RELEASE<br>
-      8–15s LOOP
-    </div>
+<section class="hero " id="home" style="--vid-opacity:0.10">
+        
+  
+  
   </div>
 
   <div class="wrap">
@@ -749,18 +738,10 @@ footer {
      Add: assets/skills-bg.mp4
      yt-dlp: yt-dlp -f "bestvideo[ext=mp4][height<=1080]" "URL" -o "assets/skills-bg.mp4"
 ═══════════════════════════════════════════ -->
-<section id="about" class="vid-section" style="--vid-opacity:0.07">
-  <video class="section-video" id="vid-skills"
-    src="assets/skills-bg.mp4"
-    autoplay muted loop playsinline preload="metadata">
-  </video>
-  <div class="vid-overlay"></div>
-  <div class="vid-placeholder">
-    <div class="vid-placeholder-inner">
-      VIDEO SLOT · assets/skills-bg.mp4<br>
-      INITIAL D — TOUGE NIGHT RACE<br>
-      10–15s LOOP
-    </div>
+<section id="about" class="" style="--vid-opacity:0.07">
+  
+  
+  
   </div>
 
   <div class="wrap">
@@ -1022,19 +1003,10 @@ footer {
   3. Put the file at: assets/projects-bg.mp4
   4. Opacity 0.08 — psychological thriller energy without overwhelming cards
 -->
-<section id="projects" class="vid-section" style="--vid-opacity:0.08">
-  <video class="section-video" id="vid-projects"
-    src="assets/projects-bg.mp4"
-    autoplay muted loop playsinline
-    preload="metadata">
-  </video>
-  <div class="vid-overlay"></div>
-  <div class="vid-placeholder">
-    <div class="vid-placeholder-inner">
-      VIDEO SLOT · assets/projects-bg.mp4<br>
-      MONSTER — COLD CITY / RAIN<br>
-      10–15s LOOP
-    </div>
+<section id="projects" class="" style="--vid-opacity:0.08">
+  
+  
+  
   </div>
 
   <div class="wrap">
@@ -1046,13 +1018,7 @@ footer {
   <div class="sec-case-label">ACTIVE DEPLOYMENTS & FIELD TOOLS · BLUE/RED TEAM DIVISION</div>
   <div class="rule"></div>
 
-  <div class="vguide">
-    <h4>▸ ADDING ANIME VIDEO BACKGROUNDS</h4>
-    <p>
-      Add a <code>&lt;video&gt;</code> tag inside any section with <code>position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.07; z-index:0;</code><br>
-      and <code>autoplay muted loop playsinline</code> attrs. Host MP4s in <code>/assets/</code> in your repo. Trim clips to 8–15s for loop. Use <code>yt-dlp</code> to download AMV scenes.
-    </p>
-  </div>
+  
 
   <div class="proj-grid">
 
